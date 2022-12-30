@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <h2>{{message}}</h2>
+    <button @click = "changeMessage">changer message</button>
+  </div>
+  <script src="./lib/vue.js"></script>
+  <script>
+  const app = Vue.createApp({
+    // data est obligatoire un function
+    data: function(){
+     return {
+      message:"hello data"
+
+     }
+    },
+    methods: {
+      changeMessage: function() {
+        this.message="hello wolrd"
+      }
+    }
+  })
+  app.mount("#app")
+  </script>
+</body>
+</html>

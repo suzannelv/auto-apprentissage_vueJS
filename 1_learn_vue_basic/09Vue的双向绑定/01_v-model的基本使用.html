@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- v-model实现双向绑定  -->
+    <input type="text" v-model="message">
+
+    <!-- 登录功能 -->
+<label for="account">
+  compte:  <input id="account" type="text" v-model="account">
+</label>
+<label for="password">
+  mot de pass:  <input type="password" type="password" v-model="password">
+</label>
+    <button @click="loginClick">log in</button>
+    <h2>{{message}}</h2>
+  </div>
+  <script src="../lib/vue.js"></script>
+  <script>
+  const app = Vue.createApp({
+    // data est obligatoire un function
+  // data option API
+    data(){
+     return {
+      message:"hello vue",
+      account:"",
+      password:""
+
+     }
+    },
+
+    methods: {
+      loginClick() {
+        const account = this.account 
+        const password = this.password
+        console.log(account, password)
+      }
+     
+    }
+  
+  })
+  app.mount("#app")
+  </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <h2>{{info.name}}</h2>
+    <button @click="changeInfo">changer info</button>
+  </div>
+  <script src="../lib/vue.js"></script>
+  <script>
+  const app = Vue.createApp({
+    // data est obligatoire un function
+  // data option API
+    data(){
+     return {
+      info:{name:"why", age:18}
+     }
+    },
+    methods:{
+      changeInfo() {
+        // 1.创建一个新对象，赋值给info
+        this.info = {name:"kebo"}
+        // 2.直接修改原对象某一个属性
+        this.info.name="kobe"
+      }
+    },
+    watch:{
+      info : {
+        // 默认watch侦听是不会进行深度监听的
+      //   info(newValue,oldValue){
+      //  console.log("info a changé:", newValue, oldValue)
+      // }
+
+        // 进行深度监听
+        handler(newValue, oldValue){
+          console.log("info a changé:", newValue, oldValue)
+
+        },
+        // 监听器选项：
+        // info进行深度监听
+        deep:true,
+        // 第一次渲染直接执行第一次监听
+        immediate:true
+
+        }
+      }
+  })
+  app.mount("#app")
+  </script>
+</body>
+</html>

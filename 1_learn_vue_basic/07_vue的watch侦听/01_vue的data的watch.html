@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <h2>{{message}}</h2>
+    <button @click="changeMessage">changer message</button>
+  </div>
+  <script src="../lib/vue.js"></script>
+  <script>
+  const app = Vue.createApp({
+    // data est obligatoire un function
+  // data option API
+    data(){
+     return {
+      message:"hello vue",
+      info:{name:"why", age:18}
+
+     }
+    },
+    methods:{
+      changeMessage() {
+        this.message="bonjour Vincent",
+        this.info = {name:"kebo"}
+        
+      }
+    },
+    watch:{
+      // 1.默认有两个参数：newValue/oldValue
+      message(newValue, oldValue){
+        console.log("message a changé:",newValue, oldValue)
+      },
+      info(newValue, oldValue) {
+        // 2.如果是对象类型，那么拿到的是代理对象
+        // console.log("info a changé:", newValue, oldValue)
+        // console.log(newValue.name, oldValue.name)
+        // 3 获取原生对象
+        // console.log({...newValue})
+        console.log(Vue.toRaw(newValue))
+      }
+    }
+  
+  })
+  app.mount("#app")
+  </script>
+</body>
+</html>

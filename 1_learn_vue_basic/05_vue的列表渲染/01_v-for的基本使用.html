@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .item{
+      background-color: orange;
+      margin-top: 5px;
+
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!-- render list movie -->
+    <ul>
+      <li v-for="movie in movies">{{movie}}</li>
+    </ul>
+    <!-- render list movie avec index-->
+    <ul>
+      <li v-for="(movie, index) in movies">{{index+1}}-{{movie}}</li>
+    </ul>
+    <!-- array -->
+    <h2>products list</h2>
+    <div class="item" v-for="item in products">
+      <h3>product: {{item.name}}</h3>
+      <span>price: {{item.price}}</span>
+      <p>sold: {{item.desc}}</p>
+
+    </div>
+
+    <!--  3.遍历对象 -->
+    <ul>
+      <li v-for="(value, key, index) in info">{{value}} - {{key}} - {{index}}</li>
+    </ul>
+
+    <!-- 4. 遍历string -->
+    <ul>
+      <li v-for="item in message">
+        {{item}}
+      </li>
+    </ul>
+
+    <!-- 5. 遍历number -->
+    <ul>
+      <li v-for="item in 10">{{item}}</li>
+    </ul>
+  
+  </div>
+  <script src="../lib/vue.js"></script>
+  <script>
+  const app = Vue.createApp({
+    // data est obligatoire un function
+  // data option API
+    data(){
+     return {
+      // 1.movies
+      movies:["star","gongfu", "voyage", "doraemon"],
+      // 2.遍历数组array: objet
+      products: [
+        {id:110, name:"mac", price: 112, desc:"9.9 sold"},
+        {id:111, name:"iphone", price: 1129, desc:"9.9 sold"},
+        {id:112, name:"xiaomi", price: 1122, desc:"9.9 sold"},
+
+      ],
+      // 3.遍历对象
+      info:{
+        name:"why", age:18, height:1.88
+      },
+
+      // 4.遍历string
+      message:"hello world" 
+
+     }
+    }
+  
+  })
+  app.mount("#app")
+  </script>
+</body>
+</html>

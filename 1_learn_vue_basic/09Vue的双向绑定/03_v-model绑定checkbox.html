@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- 1.checkbox单选框：绑定到属性中的值是一个布尔类型 -->
+    <label for="agree">
+      <input id="agree" type="checkbox" v-model="isAgree">agreed with...
+    </label>
+    <h2>option:{{isAgree}}</h2>
+
+    <!-- 2.checkbox多选框 ：绑定到属性中的值是一个array-->
+    <!-- 注意：多选框中，必须明确的绑定一个value值 -->
+    <div>
+      <h2>Your habbies:</h2>
+      <label for="sing">
+        <input type="checkbox" name="sing" id="sing" value="sing" v-model="hobbies">sing
+      </label>
+      <label for="danse">
+        <input type="checkbox" name="danse" id="danse" value="danse" v-model="hobbies">danse
+      </label>  <label for="sing">
+        <input type="checkbox" name="rap" id="rap" value="rap" v-model="hobbies">rap
+      </label>  <label for="ball">
+        <input type="checkbox" name="ball" id="ball" value="ball" v-model="hobbies">ball
+      </label>
+      <h2>hobbies:{{hobbies}}</h2>
+
+    </div>
+  </div>
+  <script src="../lib/vue.js"></script>
+  <script>
+  const app = Vue.createApp({
+    // data est obligatoire un function
+  // data option API
+    data(){
+     return {
+      message:"hello vue",
+      isAgree:false,
+      hobbies: []
+
+     }
+    }
+  
+  })
+  app.mount("#app")
+  </script>
+</body>
+</html>
