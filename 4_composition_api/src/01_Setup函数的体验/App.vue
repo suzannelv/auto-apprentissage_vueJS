@@ -10,7 +10,7 @@
 
 <script>
 // import {ref} from 'vue'
-import useCounter from '../src/hooks/useCounter'
+import useCounter from '../hooks/useCounter'
 
 export default {
   setup() {
